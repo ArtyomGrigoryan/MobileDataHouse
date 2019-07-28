@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B57F7D522EC577E00C85875 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57F7D422EC577E00C85875 /* FooterView.swift */; };
-		2BAC13C322ECE97300B844D4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC13C222ECE97300B844D4 /* Extensions.swift */; };
+		2BAC13C322ECE97300B844D4 /* UIToolbar + toolbarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC13C222ECE97300B844D4 /* UIToolbar + toolbarPicker.swift */; };
 		2BD94F9F22EB1E100047B1A9 /* FoundPhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD94F9822EB1E100047B1A9 /* FoundPhotosPresenter.swift */; };
 		2BD94FA022EB1E100047B1A9 /* FoundPhotosWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD94F9922EB1E100047B1A9 /* FoundPhotosWorker.swift */; };
 		2BD94FA122EB1E100047B1A9 /* FoundPhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD94F9A22EB1E100047B1A9 /* FoundPhotosRouter.swift */; };
@@ -36,7 +36,7 @@
 		2B091C6522ECFE7300D53278 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		2B091C6622ECFE7300D53278 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2B57F7D422EC577E00C85875 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
-		2BAC13C222ECE97300B844D4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2BAC13C222ECE97300B844D4 /* UIToolbar + toolbarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolbar + toolbarPicker.swift"; sourceTree = "<group>"; };
 		2BD94F9822EB1E100047B1A9 /* FoundPhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPhotosPresenter.swift; sourceTree = "<group>"; };
 		2BD94F9922EB1E100047B1A9 /* FoundPhotosWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPhotosWorker.swift; sourceTree = "<group>"; };
 		2BD94F9A22EB1E100047B1A9 /* FoundPhotosRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPhotosRouter.swift; sourceTree = "<group>"; };
@@ -73,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0F510C22EDB7FD00956DD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BD94FC222EB5AE60047B1A9 /* WebImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2B57F7D622EC578600C85875 /* FooterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +155,7 @@
 		2BD94FC122EB5AD30047B1A9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2BD94FC222EB5AE60047B1A9 /* WebImageView.swift */,
-				2BAC13C222ECE97300B844D4 /* Extensions.swift */,
+				2BAC13C222ECE97300B844D4 /* UIToolbar + toolbarPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 		2BFB025C22EAF75C00718532 /* MobileDataHouse */ = {
 			isa = PBXGroup;
 			children = (
+				2B0F510C22EDB7FD00956DD4 /* Views */,
 				2BD94FC122EB5AD30047B1A9 /* Helpers */,
 				2BD94F9422EAFC540047B1A9 /* Services */,
 				2BD94F9722EAFC860047B1A9 /* Scenes */,
@@ -271,7 +279,7 @@
 				2BD94FA222EB1E100047B1A9 /* FoundPhotosModels.swift in Sources */,
 				2B57F7D522EC577E00C85875 /* FooterView.swift in Sources */,
 				2BD94FB922EB22CB0047B1A9 /* NetworkService.swift in Sources */,
-				2BAC13C322ECE97300B844D4 /* Extensions.swift in Sources */,
+				2BAC13C322ECE97300B844D4 /* UIToolbar + toolbarPicker.swift in Sources */,
 				2BD94FC322EB5AE60047B1A9 /* WebImageView.swift in Sources */,
 				2BD94FB122EB1EA70047B1A9 /* SearchPhotosModels.swift in Sources */,
 				2BD94FB322EB1EA70047B1A9 /* SearchPhotosInteractor.swift in Sources */,
