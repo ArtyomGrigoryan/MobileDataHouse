@@ -14,7 +14,7 @@ protocol PhotosListCellViewModel {
 
 class FoundPhotosTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var photoImageView: WebImageView!
+    @IBOutlet private weak var photoImageView: WebImageView!
     
     override func prepareForReuse() {
         photoImageView.set(imageURL: nil)

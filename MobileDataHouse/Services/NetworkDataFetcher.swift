@@ -27,7 +27,6 @@ struct NetworkDataFetcher: DataFetcher {
         
         networking.request(path: API.searchPhotos, params: params) { (data, error) in
             if let error = error {
-                print(error.localizedDescription)
                 response(nil, error)
             }
             
