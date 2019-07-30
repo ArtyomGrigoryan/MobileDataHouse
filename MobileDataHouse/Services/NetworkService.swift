@@ -14,7 +14,7 @@ protocol Networking {
 
 class NetworkService: Networking {
     func request(path: String, params: [String: String], completion: @escaping (Data?, Error?) -> Void) {
-        let url = self.url(from: API.searchPhotos, params: params)
+        let url = self.url(from: path, params: params)
         let request = URLRequest(url: url)
         let task = createDataTask(from: request, completion: completion)
         
