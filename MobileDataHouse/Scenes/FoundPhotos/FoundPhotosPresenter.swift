@@ -33,7 +33,7 @@ class FoundPhotosPresenter: FoundPhotosPresentationLogic {
         case .presentFooterLoader:
             viewController?.displayData(viewModel: .displayFooterLoader)
         case .presentFailure(let error):
-            viewController?.displayData(viewModel: .displayFailure(error: error))
+            viewController?.displayData(viewModel: .displayFailure(error: error.localizedDescription))
         }
     }
   

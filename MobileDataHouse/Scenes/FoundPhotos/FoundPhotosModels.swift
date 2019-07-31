@@ -20,7 +20,7 @@ enum FoundPhotos {
         struct Response {
             enum ResponseType {
                 case presentPhotos(photos: ServerResponse)
-                case presentFailure(error: String)
+                case presentFailure(error: Error)
                 case presentFooterLoader
             }
         }

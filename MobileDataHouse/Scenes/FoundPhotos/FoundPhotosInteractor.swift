@@ -39,7 +39,7 @@ class FoundPhotosInteractor: FoundPhotosBusinessLogic, FoundPhotosDataStore {
                 if let response = response {
                     self?.presenter?.presentData(response: .presentPhotos(photos: response))
                 } else {
-                    self?.presenter?.presentData(response: .presentFailure(error: error!.localizedDescription))
+                    self?.presenter?.presentData(response: .presentFailure(error: error!))
                 }
             })
         // В этом кейсе грузятся последующие страницы.
@@ -50,7 +50,7 @@ class FoundPhotosInteractor: FoundPhotosBusinessLogic, FoundPhotosDataStore {
                 if let response = response {
                     self?.presenter?.presentData(response: .presentPhotos(photos: response))
                 } else {
-                    self?.presenter?.presentData(response: .presentFailure(error: error!.localizedDescription))
+                    self?.presenter?.presentData(response: .presentFailure(error: error!))
                 }
             })
         }
