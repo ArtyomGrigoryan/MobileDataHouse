@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Ak-4j-a4T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4b-BL-21h">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,78 +10,79 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search Photos View Controller-->
-        <scene sceneID="i8m-Wi-c40">
+        <!--Ввод запроса-->
+        <scene sceneID="mRi-IT-h0D">
             <objects>
-                <viewController id="R3N-zW-zz5" customClass="SearchPhotosViewController" customModule="MobileDataHouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aM2-jO-7Qz">
+                <viewController id="6YU-XK-orF" customClass="SearchPhotosViewController" customModule="MobileDataHouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vcw-hT-pou">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXd-VN-cwd">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-AB-xzF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="em2-he-m8h" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5C-bJ-rrt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите поисковый запрос..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qh-Fl-eC2">
-                                                <rect key="frame" x="51" y="318" width="312" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите поисковый запрос..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eyf-cm-5H2">
+                                                <rect key="frame" x="98" y="325" width="218" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiS-Pa-iBr">
-                                                <rect key="frame" x="138" y="356" width="139" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-af-mFc">
+                                                <rect key="frame" x="184" y="363" width="46" height="30"/>
                                                 <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Далее">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="submitButtonPressed:" destination="R3N-zW-zz5" eventType="touchUpInside" id="GBh-VV-h5R"/>
+                                                    <action selector="submitButtonPressed:" destination="6YU-XK-orF" eventType="touchUpInside" id="aQR-yj-SfJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PiS-Pa-iBr" secondAttribute="trailing" constant="137" id="Ehz-nO-Fjv"/>
-                                            <constraint firstItem="3qh-Fl-eC2" firstAttribute="top" secondItem="em2-he-m8h" secondAttribute="top" constant="318" id="P79-8d-pn1"/>
-                                            <constraint firstAttribute="trailing" secondItem="3qh-Fl-eC2" secondAttribute="trailing" constant="51" id="WZr-3a-KhB"/>
-                                            <constraint firstItem="PiS-Pa-iBr" firstAttribute="top" secondItem="3qh-Fl-eC2" secondAttribute="bottom" constant="8" id="gif-rQ-Nz3"/>
-                                            <constraint firstItem="3qh-Fl-eC2" firstAttribute="leading" secondItem="em2-he-m8h" secondAttribute="leading" constant="51" id="l3O-Jc-pcu"/>
-                                            <constraint firstItem="PiS-Pa-iBr" firstAttribute="leading" secondItem="em2-he-m8h" secondAttribute="leading" constant="138" id="p6x-NP-bOh"/>
+                                            <constraint firstItem="Eyf-cm-5H2" firstAttribute="centerX" secondItem="q5C-bJ-rrt" secondAttribute="centerX" id="23x-TI-CuE"/>
+                                            <constraint firstItem="IVa-af-mFc" firstAttribute="centerX" secondItem="q5C-bJ-rrt" secondAttribute="centerX" id="Bf8-9v-aR0"/>
+                                            <constraint firstAttribute="trailing" secondItem="Eyf-cm-5H2" secondAttribute="trailing" constant="98" id="E2b-xa-UgL"/>
+                                            <constraint firstItem="Eyf-cm-5H2" firstAttribute="leading" relation="lessThanOrEqual" secondItem="q5C-bJ-rrt" secondAttribute="leading" constant="98" id="XEX-Tr-bBr"/>
+                                            <constraint firstItem="IVa-af-mFc" firstAttribute="top" secondItem="Eyf-cm-5H2" secondAttribute="bottom" constant="8" id="aqZ-gv-Ta8"/>
+                                            <constraint firstItem="Eyf-cm-5H2" firstAttribute="top" secondItem="q5C-bJ-rrt" secondAttribute="top" constant="325" id="evX-Bf-XA8"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="IVa-af-mFc" secondAttribute="trailing" constant="184" id="oUj-Pq-T94"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93446809053421021" green="0.25472870469093323" blue="0.025740830227732658" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="em2-he-m8h" firstAttribute="leading" secondItem="aXd-VN-cwd" secondAttribute="leading" id="0nV-lQ-Pd2"/>
-                                    <constraint firstItem="em2-he-m8h" firstAttribute="centerY" secondItem="aXd-VN-cwd" secondAttribute="centerY" id="ctv-ff-wgK"/>
-                                    <constraint firstAttribute="bottom" secondItem="em2-he-m8h" secondAttribute="bottom" id="fu3-a3-q3H"/>
-                                    <constraint firstItem="em2-he-m8h" firstAttribute="top" secondItem="aXd-VN-cwd" secondAttribute="top" id="gmG-BD-qbq"/>
-                                    <constraint firstItem="em2-he-m8h" firstAttribute="centerX" secondItem="aXd-VN-cwd" secondAttribute="centerX" id="rIL-hV-m57"/>
-                                    <constraint firstAttribute="trailing" secondItem="em2-he-m8h" secondAttribute="trailing" id="y0g-cK-gsp"/>
+                                    <constraint firstItem="q5C-bJ-rrt" firstAttribute="leading" secondItem="4lF-AB-xzF" secondAttribute="leading" id="57e-8x-aVM"/>
+                                    <constraint firstItem="q5C-bJ-rrt" firstAttribute="centerX" secondItem="4lF-AB-xzF" secondAttribute="centerX" id="F74-cz-3BJ"/>
+                                    <constraint firstItem="q5C-bJ-rrt" firstAttribute="top" secondItem="4lF-AB-xzF" secondAttribute="top" id="RdS-Ce-w2V"/>
+                                    <constraint firstAttribute="bottom" secondItem="q5C-bJ-rrt" secondAttribute="bottom" id="SO5-Ad-TKx"/>
+                                    <constraint firstAttribute="trailing" secondItem="q5C-bJ-rrt" secondAttribute="trailing" id="eks-E2-aig"/>
+                                    <constraint firstItem="q5C-bJ-rrt" firstAttribute="centerY" secondItem="4lF-AB-xzF" secondAttribute="centerY" id="iRH-Ye-dem"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.42711366010000001" green="0.99193829300000003" blue="0.46790790290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aXd-VN-cwd" firstAttribute="leading" secondItem="Ceh-b6-5js" secondAttribute="leading" id="8iz-Eu-rSa"/>
-                            <constraint firstItem="Ceh-b6-5js" firstAttribute="bottom" secondItem="aXd-VN-cwd" secondAttribute="bottom" id="gaM-0r-niL"/>
-                            <constraint firstItem="Ceh-b6-5js" firstAttribute="trailing" secondItem="aXd-VN-cwd" secondAttribute="trailing" id="tsL-vN-7Nn"/>
-                            <constraint firstItem="aXd-VN-cwd" firstAttribute="top" secondItem="Ceh-b6-5js" secondAttribute="top" id="wRn-WC-SvX"/>
+                            <constraint firstItem="4lF-AB-xzF" firstAttribute="top" secondItem="CWb-Kr-e5C" secondAttribute="top" id="KCB-U9-50s"/>
+                            <constraint firstAttribute="bottom" secondItem="4lF-AB-xzF" secondAttribute="bottom" id="Oju-EO-WwF"/>
+                            <constraint firstItem="4lF-AB-xzF" firstAttribute="leading" secondItem="CWb-Kr-e5C" secondAttribute="leading" id="U2L-0s-Hvr"/>
+                            <constraint firstItem="4lF-AB-xzF" firstAttribute="trailing" secondItem="CWb-Kr-e5C" secondAttribute="trailing" id="x98-Xu-sYa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ceh-b6-5js"/>
+                        <viewLayoutGuide key="safeArea" id="CWb-Kr-e5C"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9i3-hq-fFw"/>
+                    <navigationItem key="navigationItem" title="Ввод запроса" id="nR1-71-GBH"/>
                     <connections>
-                        <outlet property="photoCategoryNameTextField" destination="3qh-Fl-eC2" id="S7L-zk-wo0"/>
-                        <outlet property="scrollView" destination="aXd-VN-cwd" id="qSO-aa-iSk"/>
-                        <segue destination="UfJ-JF-QRn" kind="show" identifier="FoundPhotos" id="QIU-fX-9rO"/>
+                        <outlet property="photoCategoryNameTextField" destination="Eyf-cm-5H2" id="gYA-fX-sZk"/>
+                        <outlet property="scrollView" destination="4lF-AB-xzF" id="Wrr-6S-NUE"/>
+                        <segue destination="UfJ-JF-QRn" kind="show" identifier="FoundPhotos" id="EFs-9g-8r1"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hco-MV-S9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzv-ey-YQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030.4347826086957" y="145.3125"/>
+            <point key="canvasLocation" x="1052" y="146"/>
         </scene>
         <!--Found Photos View Controller-->
         <scene sceneID="Qpu-XK-4yX">
@@ -132,22 +133,22 @@
             <point key="canvasLocation" x="1901" y="146"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="kfr-Vg-Qmb">
+        <scene sceneID="bD1-6H-iK4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ak-4j-a4T" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N4b-BL-21h" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gVl-pz-Ot3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PRX-yn-gEc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="R3N-zW-zz5" kind="relationship" relationship="rootViewController" id="5by-0D-CYk"/>
+                        <segue destination="6YU-XK-orF" kind="relationship" relationship="rootViewController" id="okz-e8-T1d"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hy4-UQ-IVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0YQ-DQ-1x0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="146"/>
+            <point key="canvasLocation" x="174" y="146"/>
         </scene>
     </scenes>
 </document>
