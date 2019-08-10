@@ -25,40 +25,40 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите поисковый запрос..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eyf-cm-5H2">
-                                                <rect key="frame" x="98" y="325" width="218" height="30"/>
+                                                <rect key="frame" x="98" y="532" width="218" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-af-mFc">
-                                                <rect key="frame" x="184" y="363" width="46" height="30"/>
-                                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Далее">
-                                                    <color key="titleColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="submitButtonPressed:" destination="6YU-XK-orF" eventType="touchUpInside" id="aQR-yj-SfJ"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Eyf-cm-5H2" firstAttribute="centerX" secondItem="q5C-bJ-rrt" secondAttribute="centerX" id="23x-TI-CuE"/>
-                                            <constraint firstItem="IVa-af-mFc" firstAttribute="centerX" secondItem="q5C-bJ-rrt" secondAttribute="centerX" id="Bf8-9v-aR0"/>
                                             <constraint firstAttribute="trailing" secondItem="Eyf-cm-5H2" secondAttribute="trailing" constant="98" id="E2b-xa-UgL"/>
                                             <constraint firstItem="Eyf-cm-5H2" firstAttribute="leading" relation="lessThanOrEqual" secondItem="q5C-bJ-rrt" secondAttribute="leading" constant="98" id="XEX-Tr-bBr"/>
-                                            <constraint firstItem="IVa-af-mFc" firstAttribute="top" secondItem="Eyf-cm-5H2" secondAttribute="bottom" constant="8" id="aqZ-gv-Ta8"/>
-                                            <constraint firstItem="Eyf-cm-5H2" firstAttribute="top" secondItem="q5C-bJ-rrt" secondAttribute="top" constant="325" id="evX-Bf-XA8"/>
-                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="IVa-af-mFc" secondAttribute="trailing" constant="184" id="oUj-Pq-T94"/>
+                                            <constraint firstItem="Eyf-cm-5H2" firstAttribute="top" secondItem="q5C-bJ-rrt" secondAttribute="top" constant="532" id="evX-Bf-XA8"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-af-mFc">
+                                        <rect key="frame" x="184" y="580" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Далее">
+                                            <color key="titleColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitButtonPressed:" destination="6YU-XK-orF" eventType="touchUpInside" id="aQR-yj-SfJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="IVa-af-mFc" firstAttribute="centerX" secondItem="4lF-AB-xzF" secondAttribute="centerX" id="4Bw-Yc-Ai6"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="IVa-af-mFc" secondAttribute="trailing" constant="184" id="4Hn-nL-Zr9"/>
                                     <constraint firstItem="q5C-bJ-rrt" firstAttribute="leading" secondItem="4lF-AB-xzF" secondAttribute="leading" id="57e-8x-aVM"/>
                                     <constraint firstItem="q5C-bJ-rrt" firstAttribute="centerX" secondItem="4lF-AB-xzF" secondAttribute="centerX" id="F74-cz-3BJ"/>
                                     <constraint firstItem="q5C-bJ-rrt" firstAttribute="top" secondItem="4lF-AB-xzF" secondAttribute="top" id="RdS-Ce-w2V"/>
                                     <constraint firstAttribute="bottom" secondItem="q5C-bJ-rrt" secondAttribute="bottom" id="SO5-Ad-TKx"/>
+                                    <constraint firstItem="IVa-af-mFc" firstAttribute="top" secondItem="Eyf-cm-5H2" secondAttribute="bottom" constant="18" id="VNB-eK-Gix"/>
                                     <constraint firstAttribute="trailing" secondItem="q5C-bJ-rrt" secondAttribute="trailing" id="eks-E2-aig"/>
                                     <constraint firstItem="q5C-bJ-rrt" firstAttribute="centerY" secondItem="4lF-AB-xzF" secondAttribute="centerY" id="iRH-Ye-dem"/>
                                 </constraints>

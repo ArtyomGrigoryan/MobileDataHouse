@@ -22,7 +22,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
     // MARK: - Private variables
     
     private weak var activeField: UITextField?
-    
+
     // MARK: - @IBOutlets
     
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -65,7 +65,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let toolbar = UIToolbar().toolbarPicker(mySelect: #selector(dismissPicker))
         
         photoCategoryNameTextField.delegate = self
@@ -73,13 +73,13 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
   
     func displayData(viewModel: SearchPhotos.Model.ViewModel.ViewModelData) {
@@ -109,10 +109,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
         present(alertController, animated: true)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+    // MARK: - Keyboard functions 
     
     @objc func kbDidShow(notification: Notification) {
         guard
@@ -126,13 +123,22 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         scrollView.scrollRectToVisible(activeField.frame, animated: true)
+        
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
     }
     
     @objc func kbDidHide(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @objc func dismissPicker() {
