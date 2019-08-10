@@ -16,10 +16,6 @@ class FoundPhotosTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var photoImageView: WebImageView!
     
-    override func prepareForReuse() {
-        photoImageView.set(imageURL: nil)
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

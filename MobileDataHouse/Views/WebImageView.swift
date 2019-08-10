@@ -19,9 +19,6 @@ class WebImageView: UIImageView {
         if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
             self.image = UIImage(data: cachedResponse.data)
             //если да, то не нужно заново подгружать картинки (return)
-            #if DEBUG
-                print("Берем из кэша")
-            #endif
             return
         }
         
@@ -31,9 +28,6 @@ class WebImageView: UIImageView {
                 if let data = data, let response = response, let self = self {
                     self.image = UIImage(data: data)
                     //если изображения в кэше не оказалось, то поместим его в кэш
-                    #if DEBUG
-                        print("Грузим в кэш")
-                    #endif
                     self.handleLoadingImage(data: data, response: response)
                 }
             }
