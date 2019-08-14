@@ -1,35 +1,38 @@
 //
-//  FoundPhotosInteractor.swift
+//  PhotosListInteractor.swift
 //  MobileDataHouse
 //
-//  Created by Артем Григорян on 26/07/2019.
+//  Created by Артем Григорян on 14/08/2019.
 //  Copyright (c) 2019 Artyom Grigoryan. All rights reserved.
 //
 
 import UIKit
 
-protocol FoundPhotosBusinessLogic {
-    func makeRequest(request: FoundPhotos.Model.Request.RequestType)
+protocol PhotosListBusinessLogic {
+    func makeRequest(request: PhotosList.Model.Request.RequestType)
 }
 
-protocol FoundPhotosDataStore {
+protocol PhotosListDataStore {
     var userQuery: String! { get set }
 }
 
-class FoundPhotosInteractor: FoundPhotosBusinessLogic, FoundPhotosDataStore {
-  
+class PhotosListInteractor: PhotosListBusinessLogic, PhotosListDataStore {
+
     // MARK: - Public variables
     
-    var page = 1
     var userQuery: String!
-    var service: FoundPhotosService?
-    var presenter: FoundPhotosPresentationLogic?
+    var service: PhotosListService?
+    var presenter: PhotosListPresentationLogic?
+    
+    // MARK: - Private variables
+    
+    private var page = 1
   
     // MARK: - Logic
     
-    func makeRequest(request: FoundPhotos.Model.Request.RequestType) {
+    func makeRequest(request: PhotosList.Model.Request.RequestType) {
         if service == nil {
-            service = FoundPhotosService()
+            service = PhotosListService()
         }
         
         switch request {

@@ -1,14 +1,14 @@
 //
-//  FoundPhotosWorker.swift
+//  PhotosListWorker.swift
 //  MobileDataHouse
 //
-//  Created by Артем Григорян on 26/07/2019.
+//  Created by Артем Григорян on 14/08/2019.
 //  Copyright (c) 2019 Artyom Grigoryan. All rights reserved.
 //
 
 import UIKit
 
-class FoundPhotosService {
+class PhotosListService {
     private var response: ServerResponse?
     private var networking: Networking
     private var fetcher: DataFetcher

@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol SearchPhotosRoutingLogic {
-    func routeToFoundPhotos(segue: UIStoryboardSegue)
+    func routeToPhotosList(segue: UIStoryboardSegue)
 }
 
 protocol SearchPhotosDataPassing {
@@ -25,13 +25,13 @@ class SearchPhotosRouter: NSObject, SearchPhotosRoutingLogic, SearchPhotosDataPa
   
     // MARK: - Routing
   
-    func routeToFoundPhotos(segue: UIStoryboardSegue) {
-        let dvc = segue.destination as! FoundPhotosViewController
+    func routeToPhotosList(segue: UIStoryboardSegue) {
+        let dvc = segue.destination as! PhotosListViewController
         var destinationDS = dvc.router!.dataStore!
-        passDataToFoundPhotos(source: dataStore!, destination: &destinationDS)
+        passDataToPhotosList(source: dataStore!, destination: &destinationDS)
     }
     
-    func passDataToFoundPhotos(source: SearchPhotosDataStore, destination: inout FoundPhotosDataStore) {
+    func passDataToPhotosList(source: SearchPhotosDataStore, destination: inout PhotosListDataStore) {
         destination.userQuery = source.userQuery
     }
 }

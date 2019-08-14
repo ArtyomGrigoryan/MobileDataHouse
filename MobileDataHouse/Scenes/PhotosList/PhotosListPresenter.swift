@@ -1,26 +1,24 @@
 //
-//  FoundPhotosPresenter.swift
+//  PhotosListPresenter.swift
 //  MobileDataHouse
 //
-//  Created by Артем Григорян on 26/07/2019.
+//  Created by Артем Григорян on 14/08/2019.
 //  Copyright (c) 2019 Artyom Grigoryan. All rights reserved.
 //
 
 import UIKit
 
-protocol FoundPhotosPresentationLogic {
-    func presentData(response: FoundPhotos.Model.Response.ResponseType)
+protocol PhotosListPresentationLogic {
+    func presentData(response: PhotosList.Model.Response.ResponseType)
 }
 
-class FoundPhotosPresenter: FoundPhotosPresentationLogic {
-    
-    // MARK: - Public variables
-    
-    weak var viewController: FoundPhotosDisplayLogic?
+class PhotosListPresenter: PhotosListPresentationLogic {
+  
+    weak var viewController: PhotosListDisplayLogic?
   
     // MARK: - Logic
     
-    func presentData(response: FoundPhotos.Model.Response.ResponseType) {
+    func presentData(response: PhotosList.Model.Response.ResponseType) {
         switch response {
         case .presentPhotos(let photos):
             let cells = photos.results.map { (photo)  in
@@ -36,7 +34,7 @@ class FoundPhotosPresenter: FoundPhotosPresentationLogic {
             viewController?.displayData(viewModel: .displayFailure(error: error.localizedDescription))
         }
     }
-  
+    
     private func cellViewModel(from photo: Results) -> PhotosViewModel.Cell {
         let small = photo.urls.small
         

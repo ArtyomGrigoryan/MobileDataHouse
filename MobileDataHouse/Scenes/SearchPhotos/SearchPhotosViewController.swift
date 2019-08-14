@@ -85,7 +85,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
     func displayData(viewModel: SearchPhotos.Model.ViewModel.ViewModelData) {
         switch viewModel {
         case .success:
-            self.performSegue(withIdentifier: "FoundPhotos", sender: nil)
+            self.performSegue(withIdentifier: "PhotosList", sender: nil)
         case .presentFailure(let errorTitle):
             self.errorAlert(title: errorTitle)
         }
