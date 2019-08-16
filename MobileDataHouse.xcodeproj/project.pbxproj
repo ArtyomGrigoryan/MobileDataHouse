@@ -146,8 +146,8 @@
 				2BD94FAB22EB1EA70047B1A9 /* SearchPhotosViewController.swift */,
 				2BD94FAC22EB1EA70047B1A9 /* SearchPhotosInteractor.swift */,
 				2BD94FA722EB1EA70047B1A9 /* SearchPhotosPresenter.swift */,
-				2BD94FA922EB1EA70047B1A9 /* SearchPhotosRouter.swift */,
 				2BD94FAA22EB1EA70047B1A9 /* SearchPhotosModels.swift */,
+				2BD94FA922EB1EA70047B1A9 /* SearchPhotosRouter.swift */,
 			);
 			path = SearchPhotos;
 			sourceTree = "<group>";

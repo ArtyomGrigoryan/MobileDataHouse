@@ -27,8 +27,9 @@ class PhotosListInteractor: PhotosListBusinessLogic, PhotosListDataStore {
     // MARK: - Private variables
     
     private var page = 1
+    private let errorMessage = "Повторите попытку."
   
-    // MARK: - Logic
+    // MARK: - PhotosListBusinessLogic
     
     func makeRequest(request: PhotosList.Model.Request.RequestType) {
         if service == nil {
@@ -42,7 +43,8 @@ class PhotosListInteractor: PhotosListBusinessLogic, PhotosListDataStore {
                 if let response = response {
                     self?.presenter?.presentData(response: .presentPhotos(photos: response))
                 } else {
-                    self?.presenter?.presentData(response: .presentFailure(error: error!))
+                    let title = error!.localizedDescription
+                    self?.presenter?.presentData(response: .presentAlertController(title: title, message: self?.errorMessage))
                 }
             })
         // В этом кейсе грузятся последующие страницы.
@@ -53,9 +55,15 @@ class PhotosListInteractor: PhotosListBusinessLogic, PhotosListDataStore {
                 if let response = response {
                     self?.presenter?.presentData(response: .presentPhotos(photos: response))
                 } else {
-                    self?.presenter?.presentData(response: .presentFailure(error: error!))
+                    let title = error!.localizedDescription
+                    self?.presenter?.presentData(response: .presentAlertController(title: title, message: self?.errorMessage))
                 }
             })
+        // В этом кейсе чистится кэш.
+        case .clearCache:
+            service?.clearCache()
+            let title = "Кэш очищен!"
+            self.presenter?.presentData(response: .presentAlertController(title: title, message: nil))
         }
     }
 }

@@ -13,22 +13,23 @@ enum PhotosList {
         struct Request {
             enum RequestType {
                 case getPhotos
+                case clearCache
                 case getNextPortion
             }
         }
    
         struct Response {
             enum ResponseType {
+                case presentAlertController(title: String, message: String?)
                 case presentPhotos(photos: ServerResponse)
-                case presentFailure(error: Error)
                 case presentFooterLoader
             }
         }
   
         struct ViewModel {
             enum ViewModelData {
+                case displayAlertController(title: String, message: String?)
                 case displayPhotos(photosViewModel: PhotosViewModel)
-                case displayFailure(error: String)
                 case displayFooterLoader
             }
         }

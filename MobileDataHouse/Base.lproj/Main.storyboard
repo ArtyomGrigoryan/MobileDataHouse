@@ -76,12 +76,12 @@
                     <connections>
                         <outlet property="photoCategoryNameTextField" destination="Eyf-cm-5H2" id="gYA-fX-sZk"/>
                         <outlet property="scrollView" destination="4lF-AB-xzF" id="Wrr-6S-NUE"/>
-                        <segue destination="mW7-y4-y28" kind="show" identifier="PhotosList" id="pLT-CO-4Wf"/>
+                        <segue destination="Qm4-QO-EcP" kind="show" identifier="PhotosList" id="pLT-CO-4Wf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzv-ey-YQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="146"/>
+            <point key="canvasLocation" x="1033" y="146"/>
         </scene>
         <!--Photos List View Controller-->
         <scene sceneID="vRH-wy-kKH">
@@ -106,7 +106,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="296" height="302"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yto-IJ-OfN" customClass="WebImageView" customModule="MobileDataHouse" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dp" translatesAutoresizingMaskIntoConstraints="NO" id="Yto-IJ-OfN" customClass="WebImageView" customModule="MobileDataHouse" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="296" height="302"/>
                                         </imageView>
                                     </subviews>
@@ -131,10 +131,22 @@
                             <outlet property="delegate" destination="mW7-y4-y28" id="3UJ-HF-qDB"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="ceA-dd-n0b">
+                        <barButtonItem key="leftBarButtonItem" title="Отмена" id="Tks-eS-SsA">
+                            <connections>
+                                <action selector="cancelBarButtonItemPressed:" destination="mW7-y4-y28" id="IAf-1V-hbW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Очистить кэш" id="wjS-Qi-cX1">
+                            <connections>
+                                <action selector="clearCacheBarButtonItemPressed:" destination="mW7-y4-y28" id="bI0-1x-1jz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGW-Cp-cGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="146"/>
+            <point key="canvasLocation" x="2729" y="146"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bD1-6H-iK4">
@@ -154,5 +166,26 @@
             </objects>
             <point key="canvasLocation" x="174" y="146"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kb4-Q3-ktW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qm4-QO-EcP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zLL-1M-VKL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mW7-y4-y28" kind="relationship" relationship="rootViewController" id="oja-m3-m9C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FrN-Qb-hXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886.9565217391305" y="145.98214285714286"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="dp" width="512" height="512"/>
+    </resources>
 </document>

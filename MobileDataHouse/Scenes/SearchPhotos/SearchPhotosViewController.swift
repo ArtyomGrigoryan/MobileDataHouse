@@ -67,7 +67,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
         super.viewDidLoad()
 
         let toolbar = UIToolbar().toolbarPicker(mySelect: #selector(dismissPicker))
-        
+
         photoCategoryNameTextField.delegate = self
         photoCategoryNameTextField.inputAccessoryView = toolbar
     }

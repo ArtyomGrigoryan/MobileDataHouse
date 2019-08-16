@@ -27,7 +27,7 @@ class SearchPhotosInteractor: SearchPhotosBusinessLogic, SearchPhotosDataStore {
     
     private let emptyTextFieldErrorMessage = "Пожалуйста, напишите что-нибудь в текстовое поле."
   
-    // MARK: - Logic
+    // MARK: - SearchPhotosBusinessLogic
     
     func makeRequest(request: SearchPhotos.Model.Request.RequestType) {
         switch request {

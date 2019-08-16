@@ -25,9 +25,11 @@ class SearchPhotosRouter: NSObject, SearchPhotosRoutingLogic, SearchPhotosDataPa
   
     // MARK: - Routing
   
-    func routeToPhotosList(segue: UIStoryboardSegue) {
-        let dvc = segue.destination as! PhotosListViewController
+    func routeToPhotosList(segue: UIStoryboardSegue) {        
+        let nvc = segue.destination as! UINavigationController
+        let dvc = nvc.topViewController as! PhotosListViewController
         var destinationDS = dvc.router!.dataStore!
+        dvc.title = dataStore!.userQuery
         passDataToPhotosList(source: dataStore!, destination: &destinationDS)
     }
     

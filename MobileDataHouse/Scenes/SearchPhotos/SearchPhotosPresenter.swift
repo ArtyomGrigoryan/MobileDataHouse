@@ -18,7 +18,7 @@ class SearchPhotosPresenter: SearchPhotosPresentationLogic {
     
     weak var viewController: SearchPhotosDisplayLogic?
   
-    // MARK: - Logic
+    // MARK: - SearchPhotosPresentationLogic
     
     func presentData(response: SearchPhotos.Model.Response.ResponseType) {
         switch response {

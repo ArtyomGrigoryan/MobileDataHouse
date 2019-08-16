@@ -22,7 +22,5 @@ class PhotosListRouter: NSObject, PhotosListRoutingLogic, PhotosListDataPassing 
     
     var dataStore: PhotosListDataStore?
     weak var viewController: PhotosListViewController?
-  
-    // MARK: - Routing
-  
+
 }

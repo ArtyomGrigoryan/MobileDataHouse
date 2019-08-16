@@ -50,4 +50,8 @@ class PhotosListService {
             }
         }
     }
+    
+    func clearCache() {
+        URLCache.shared.removeAllCachedResponses()
+    }
 }

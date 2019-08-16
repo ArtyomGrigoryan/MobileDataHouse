@@ -14,9 +14,11 @@ protocol PhotosListPresentationLogic {
 
 class PhotosListPresenter: PhotosListPresentationLogic {
   
+    // MARK: - Public variables
+    
     weak var viewController: PhotosListDisplayLogic?
   
-    // MARK: - Logic
+    // MARK: - PhotosListPresentationLogic
     
     func presentData(response: PhotosList.Model.Response.ResponseType) {
         switch response {
@@ -30,8 +32,8 @@ class PhotosListPresenter: PhotosListPresentationLogic {
             viewController?.displayData(viewModel: .displayPhotos(photosViewModel: photosViewModel))
         case .presentFooterLoader:
             viewController?.displayData(viewModel: .displayFooterLoader)
-        case .presentFailure(let error):
-            viewController?.displayData(viewModel: .displayFailure(error: error.localizedDescription))
+        case .presentAlertController(let title, let message):
+            viewController?.displayData(viewModel: .displayAlertController(title: title, message: message))
         }
     }
     

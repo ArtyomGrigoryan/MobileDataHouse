@@ -22,7 +22,7 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
     // MARK: - Private variables
     
     private var photosViewModel = PhotosViewModel(cells: [])
-    private var footerView: FooterCollectionReusableView = FooterCollectionReusableView()
+    private var footerView = FooterCollectionReusableView()
     private var myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -73,10 +73,12 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
             myRefreshControl.endRefreshing()
         case .displayFooterLoader:
             footerView.showLoader()
-        case .displayFailure(let error):
-            errorAlert(title: error)
+        case .displayAlertController(let title, let message):
+            showAlert(title: title, message: message)
         }
     }
+    
+    // MARK: - Scroll View
     
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y > scrollView.contentSize.height / 1.4 {
@@ -116,10 +118,20 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
         return CGSize(width: (width / numberOfColumns) -  (xInsets + cellSpacing), height: (width / numberOfColumns) -  (xInsets + cellSpacing))
     }
     
+    // MARK: - @IBActions
+    
+    @IBAction private func clearCacheBarButtonItemPressed(_ sender: UIBarButtonItem) {
+        interactor?.makeRequest(request: .clearCache)
+    }
+    
+    @IBAction private func cancelBarButtonItemPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
     // MARK: - Helpers
     
-    private func errorAlert(title: String) {
-        let alertController = UIAlertController(title: title, message: "Повторите попытку.", preferredStyle: .alert)
+    private func showAlert(title: String, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let closeAction = UIAlertAction(title: "OK", style: .default)
         
         alertController.addAction(closeAction)
