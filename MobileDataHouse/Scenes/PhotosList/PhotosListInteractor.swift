@@ -36,34 +36,37 @@ class PhotosListInteractor: PhotosListBusinessLogic, PhotosListDataStore {
             service = PhotosListService()
         }
         
+        guard let service = service, let presenter = self.presenter else { return }
         switch request {
         // В этом кейсе по умолчанию грузится 1 (первая) страница выдачи по запросу.
         case .getPhotos:
-            service?.searchPhotos(query: userQuery, completion: { [weak self] (response, error) in
-                if let response = response {
-                    self?.presenter?.presentData(response: .presentPhotos(photos: response))
-                } else {
-                    let title = error!.localizedDescription
-                    self?.presenter?.presentData(response: .presentAlertController(title: title, message: self?.errorMessage))
+            service.searchPhotos(query: userQuery) { [weak self] (response) in
+                switch response {
+                case .success(let response):
+                    presenter.presentData(response: .presentPhotos(photos: response))
+                case .failure(let error):
+                    guard let self = self else { return }
+                    presenter.presentData(response: .presentAlertController(title: error, message: self.errorMessage))
                 }
-            })
+            }
         // В этом кейсе грузятся последующие страницы.
         case .getNextPortion:
             page += 1
-            self.presenter?.presentData(response: .presentFooterLoader)
-            service?.getNextPortion(query: userQuery, page: String(describing: page), completion: { [weak self] (response, error) in
-                if let response = response {
-                    self?.presenter?.presentData(response: .presentPhotos(photos: response))
-                } else {
-                    let title = error!.localizedDescription
-                    self?.presenter?.presentData(response: .presentAlertController(title: title, message: self?.errorMessage))
+            presenter.presentData(response: .presentFooterLoader)
+            service.getNextPortion(query: userQuery, page: String(describing: page)) { [weak self] (response) in
+                switch response {
+                case .success(let response):
+                    presenter.presentData(response: .presentPhotos(photos: response))
+                case .failure(let error):
+                    guard let self = self else { return }
+                    presenter.presentData(response: .presentAlertController(title: error, message: self.errorMessage))
                 }
-            })
+            }
         // В этом кейсе чистится кэш.
         case .clearCache:
-            service?.clearCache()
+            service.clearCache()
             let title = "Кэш очищен!"
-            self.presenter?.presentData(response: .presentAlertController(title: title, message: nil))
+            presenter.presentData(response: .presentAlertController(title: title, message: nil))
         }
     }
 }

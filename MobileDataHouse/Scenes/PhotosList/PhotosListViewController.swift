@@ -53,7 +53,9 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
     
     private func setupCollectionView() {
         collectionView.addSubview(myRefreshControl)
-        collectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: FooterCollectionReusableView.self))
+        collectionView.register(FooterCollectionReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: String(describing: FooterCollectionReusableView.self))
     }
 
     // MARK: - View lifecycle
@@ -74,7 +76,7 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
         case .displayFooterLoader:
             footerView.showLoader()
         case .displayAlertController(let title, let message):
-            showAlert(title: title, message: message)
+            showAlert(with: title, and: message)
         }
     }
     
@@ -93,7 +95,8 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
     }
   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotosListCollectionViewCell.self), for: indexPath) as! PhotosListCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotosListCollectionViewCell.self),
+                                                      for: indexPath) as! PhotosListCollectionViewCell
         let cellViewModel = photosViewModel.cells[indexPath.row]
         
         cell.set(viewModel: cellViewModel)
@@ -102,7 +105,9 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: FooterCollectionReusableView.self), for: indexPath) as! FooterCollectionReusableView
+        let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                                           withReuseIdentifier: String(describing: FooterCollectionReusableView.self),
+                                                                           for: indexPath) as! FooterCollectionReusableView
         
         reusableView.addSubview(footerView)
         
@@ -115,7 +120,7 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
         let numberOfColumns: CGFloat = 3
         let width = collectionView.frame.size.width
         
-        return CGSize(width: (width / numberOfColumns) -  (xInsets + cellSpacing), height: (width / numberOfColumns) -  (xInsets + cellSpacing))
+        return CGSize(width: (width / numberOfColumns) - (xInsets + cellSpacing), height: (width / numberOfColumns) - (xInsets + cellSpacing))
     }
     
     // MARK: - @IBActions
@@ -130,7 +135,7 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
     
     // MARK: - Helpers
     
-    private func showAlert(title: String, message: String?) {
+    private func showAlert(with title: String, and message: String?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let closeAction = UIAlertAction(title: "OK", style: .default)
         

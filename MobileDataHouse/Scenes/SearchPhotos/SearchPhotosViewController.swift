@@ -87,7 +87,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
         case .success:
             self.performSegue(withIdentifier: "PhotosList", sender: nil)
         case .presentFailure(let errorTitle):
-            self.errorAlert(title: errorTitle)
+            self.errorAlert(with: errorTitle)
         }
     }
     
@@ -100,7 +100,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
     
     // MARK: - Helpers
     
-    private func errorAlert(title: String) {
+    private func errorAlert(with title: String) {
         let alertController = UIAlertController(title: title, message: "Повторите попытку.", preferredStyle: .alert)
         let closeAction = UIAlertAction(title: "OK", style: .default)
         

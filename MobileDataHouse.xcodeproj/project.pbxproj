@@ -15,6 +15,7 @@
 		2B11A12523048CE1005D0519 /* PhotosListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11A11E23048CE1005D0519 /* PhotosListInteractor.swift */; };
 		2B11A12A23048DFB005D0519 /* PhotosListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11A12923048DFB005D0519 /* PhotosListCollectionViewCell.swift */; };
 		2B11A12D23048F88005D0519 /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11A12C23048F88005D0519 /* FooterCollectionReusableView.swift */; };
+		2B796BAE2312E6FC00E00BCB /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B796BAD2312E6FC00E00BCB /* APIResponse.swift */; };
 		2BAC13C322ECE97300B844D4 /* UIToolbar + toolbarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC13C222ECE97300B844D4 /* UIToolbar + toolbarPicker.swift */; };
 		2BD94FAE22EB1EA70047B1A9 /* SearchPhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD94FA722EB1EA70047B1A9 /* SearchPhotosPresenter.swift */; };
 		2BD94FB022EB1EA70047B1A9 /* SearchPhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD94FA922EB1EA70047B1A9 /* SearchPhotosRouter.swift */; };
@@ -33,8 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B091C6522ECFE7300D53278 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		2B091C6622ECFE7300D53278 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2B11A11923048CE1005D0519 /* PhotosListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListPresenter.swift; sourceTree = "<group>"; };
 		2B11A11A23048CE1005D0519 /* PhotosListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListWorker.swift; sourceTree = "<group>"; };
 		2B11A11B23048CE1005D0519 /* PhotosListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListRouter.swift; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		2B11A11E23048CE1005D0519 /* PhotosListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListInteractor.swift; sourceTree = "<group>"; };
 		2B11A12923048DFB005D0519 /* PhotosListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B11A12C23048F88005D0519 /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		2B796BAD2312E6FC00E00BCB /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		2BAC13C222ECE97300B844D4 /* UIToolbar + toolbarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolbar + toolbarPicker.swift"; sourceTree = "<group>"; };
 		2BD94FA722EB1EA70047B1A9 /* SearchPhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosPresenter.swift; sourceTree = "<group>"; };
 		2BD94FA922EB1EA70047B1A9 /* SearchPhotosRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosRouter.swift; sourceTree = "<group>"; };
@@ -117,6 +117,7 @@
 			children = (
 				2BD94F9522EAFC620047B1A9 /* Models */,
 				2BD94FB622EB204E0047B1A9 /* API.swift */,
+				2B796BAD2312E6FC00E00BCB /* APIResponse.swift */,
 				2BD94FB822EB22CB0047B1A9 /* NetworkService.swift */,
 				2BD94FBA22EB26680047B1A9 /* NetworkDataFetcher.swift */,
 			);
@@ -234,7 +235,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ru,
 			);
 			mainGroup = 2BFB025122EAF75C00718532;
 			productRefGroup = 2BFB025B22EAF75C00718532 /* Products */;
@@ -278,6 +278,7 @@
 				2B11A12423048CE1005D0519 /* PhotosListViewController.swift in Sources */,
 				2B11A12A23048DFB005D0519 /* PhotosListCollectionViewCell.swift in Sources */,
 				2BD94FB922EB22CB0047B1A9 /* NetworkService.swift in Sources */,
+				2B796BAE2312E6FC00E00BCB /* APIResponse.swift in Sources */,
 				2BAC13C322ECE97300B844D4 /* UIToolbar + toolbarPicker.swift in Sources */,
 				2BD94FC322EB5AE60047B1A9 /* WebImageView.swift in Sources */,
 				2BD94FB122EB1EA70047B1A9 /* SearchPhotosModels.swift in Sources */,
@@ -294,7 +295,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2BFB026222EAF75C00718532 /* Base */,
-				2B091C6522ECFE7300D53278 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -303,7 +303,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2BFB026722EAF75E00718532 /* Base */,
-				2B091C6622ECFE7300D53278 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

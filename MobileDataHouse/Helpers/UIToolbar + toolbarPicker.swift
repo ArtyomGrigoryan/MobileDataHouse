@@ -12,7 +12,6 @@ extension UIToolbar {
     func toolbarPicker(mySelect: Selector) -> UIToolbar {
         let toolbar = UIToolbar()
         let doneButton = UIBarButtonItem(title: "Готово", style: .plain, target: self, action: mySelect)
-        //добавим пустую кнопку, чтобы кнопка "Готово" ушла вправо
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
         toolbar.barStyle = .default
