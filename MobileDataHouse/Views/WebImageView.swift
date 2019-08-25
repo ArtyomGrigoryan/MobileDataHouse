@@ -14,7 +14,7 @@ class WebImageView: UIImageView {
             self.image = nil
             return
         }
-        
+
         //проверим лежит ли изображение в кэше
         if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
             self.image = UIImage(data: cachedResponse.data)

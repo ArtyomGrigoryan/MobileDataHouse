@@ -26,18 +26,22 @@ struct NetworkDataFetcher: DataFetcher {
                       "per_page": API.perPage]
         
         networking.request(path: API.searchPhotos, params: params) { (data, error) in
-            if let error = error {
-                response(nil, error)
+            guard let data = data else {
+                return response(nil, error)
             }
-            
             let decoded = self.decodeJSON(type: ServerResponse.self, from: data)
             response(decoded, nil)
         }
     }
     
-    private func decodeJSON<T: Decodable>(type: T.Type, from: Data?) -> T? {
+    private func decodeJSON<T: Decodable>(type: T.Type, from data: Data) -> T? {
         let decoder = JSONDecoder()
-        guard let data = from, let response = try? decoder.decode(type.self, from: data) else { return nil }
-        return response
+        
+        do {
+            return try decoder.decode(type.self, from: data)
+        } catch let error {
+            print("Error is: ", error)
+            return nil
+        }
     }
 }
