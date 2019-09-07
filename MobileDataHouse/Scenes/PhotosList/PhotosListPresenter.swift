@@ -23,9 +23,7 @@ class PhotosListPresenter: PhotosListPresentationLogic {
     func presentData(response: PhotosList.Model.Response.ResponseType) {
         switch response {
         case .presentPhotos(let photos):
-            let cells = photos.results.map { (photo)  in
-                cellViewModel(from: photo)
-            }
+            let cells = photos.results.map { cellViewModel(from: $0) }
             
             let photosViewModel = PhotosViewModel(cells: cells)
             

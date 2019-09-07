@@ -32,13 +32,13 @@ class SearchPhotosInteractor: SearchPhotosBusinessLogic, SearchPhotosDataStore {
     func makeRequest(request: SearchPhotos.Model.Request.RequestType) {
         switch request {
         case .passUserQuery(let userQuery):
-            let userQuery = userQuery.trimmingCharacters(in: .whitespaces)
+            let query = userQuery.trimmingCharacters(in: .whitespaces)
             
             if userQuery.isEmpty {
-                self.presenter?.presentData(response: .failure(error: emptyTextFieldErrorMessage))
+                presenter?.presentData(response: .failure(error: emptyTextFieldErrorMessage))
             } else {
-                self.userQuery = userQuery
-                self.presenter?.presentData(response: .success)
+                self.userQuery = query
+                presenter?.presentData(response: .success)
             }
         }
     }

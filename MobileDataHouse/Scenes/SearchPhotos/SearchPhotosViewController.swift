@@ -85,9 +85,9 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
     func displayData(viewModel: SearchPhotos.Model.ViewModel.ViewModelData) {
         switch viewModel {
         case .success:
-            self.performSegue(withIdentifier: "PhotosList", sender: nil)
+            performSegue(withIdentifier: "PhotosList", sender: nil)
         case .presentFailure(let errorTitle):
-            self.errorAlert(with: errorTitle)
+            errorAlert(with: errorTitle)
         }
     }
     
@@ -127,7 +127,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
         } else {
-            self.automaticallyAdjustsScrollViewInsets = false
+            automaticallyAdjustsScrollViewInsets = false
         }
     }
     
