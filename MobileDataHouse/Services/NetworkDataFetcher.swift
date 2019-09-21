@@ -9,34 +9,29 @@
 import Foundation
 
 protocol DataFetcher {
-    func searchPhotos(query: String, page: String, response: @escaping (ServerResponse?, Error?) -> Void)
+    func fetchJSONData<T: Decodable>(params: [String: String], response: @escaping (T?, Error?) -> Void)
 }
 
 struct NetworkDataFetcher: DataFetcher {
     let networking: Networking
     
-    init(networking: Networking) {
+    init(networking: Networking = NetworkService()) {
         self.networking = networking
     }
     
-    func searchPhotos(query: String, page: String, response: @escaping (ServerResponse?, Error?) -> Void) {
-        let params = ["client_id": API.key,
-                      "query": query,
-                      "page": page,
-                      "per_page": API.perPage]
-        
+    func fetchJSONData<T: Decodable>(params: [String: String], response: @escaping (T?, Error?) -> Void) {
         networking.request(path: API.searchPhotos, params: params) { (data, error) in
             guard let data = data else {
                 return response(nil, error)
             }
-            let decoded = self.decodeJSON(type: ServerResponse.self, from: data)
+            let decoded = self.decodeJSON(type: T.self, from: data)
             response(decoded, nil)
         }
     }
     
     private func decodeJSON<T: Decodable>(type: T.Type, from data: Data) -> T? {
         let decoder = JSONDecoder()
-        
+
         do {
             return try decoder.decode(type.self, from: data)
         } catch let error {

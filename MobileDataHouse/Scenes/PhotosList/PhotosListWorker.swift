@@ -9,19 +9,17 @@
 import UIKit
 
 class PhotosListService {
+    private var fetcherService: DataFetcherService!
     private var response: ServerResponse?
-    private var networking: Networking
-    private var fetcher: DataFetcher
-    private var page: String
+    private var page: String!
     
     init() {
         page = "1"
-        networking = NetworkService()
-        fetcher = NetworkDataFetcher(networking: networking)
+        fetcherService = DataFetcherService()
     }
     
     func searchPhotos(query: String, completion: @escaping (Response<ServerResponse>) -> Void) {
-        fetcher.searchPhotos(query: query, page: page) { [weak self] (serverResponse, error) in
+        fetcherService.searchPhotos(query: query, page: page) { [weak self] (serverResponse, error) in
             guard let self = self, let response = serverResponse else {
                 return completion(.failure(error!.localizedDescription))
             }
@@ -33,7 +31,7 @@ class PhotosListService {
     
     
     func getNextPortion(query: String, page: String, completion: @escaping (Response<ServerResponse>) -> Void) {
-        fetcher.searchPhotos(query: query, page: page) { [weak self]  (serverResponse, error) in
+        fetcherService.searchPhotos(query: query, page: page) { [weak self]  (serverResponse, error) in
             guard let self = self, let response = serverResponse else {
                 return completion(.failure(error!.localizedDescription))
             }

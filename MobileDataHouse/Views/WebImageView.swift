@@ -11,13 +11,13 @@ import UIKit
 class WebImageView: UIImageView {
     func set(imageURL: String?) {
         guard let imageURL = imageURL, let url = URL(string: imageURL) else {
-            self.image = nil
+            image = nil
             return
         }
 
         //проверим лежит ли изображение в кэше
         if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
-            self.image = UIImage(data: cachedResponse.data)
+            image = UIImage(data: cachedResponse.data)
             //если да, то не нужно заново подгружать картинки (return)
             return
         }
