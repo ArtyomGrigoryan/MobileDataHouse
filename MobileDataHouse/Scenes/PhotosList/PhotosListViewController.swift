@@ -83,7 +83,7 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
     // MARK: - Scroll View
     
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.4 {
+        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.9 {
             interactor?.makeRequest(request: .getNextPortion)
         }
     }

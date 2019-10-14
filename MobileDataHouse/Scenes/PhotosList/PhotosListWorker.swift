@@ -23,7 +23,7 @@ class PhotosListService {
             guard let self = self, let response = serverResponse else {
                 return completion(.failure(error!.localizedDescription))
             }
-            // В self.response потом будем аппендить новые картинки из других страниц (page)
+            // В self.response потом будем аппендить новые картинки из других страниц (page).
             self.response = response
             completion(.success(response))
         }
@@ -39,7 +39,7 @@ class PhotosListService {
             if self.response == nil {
                 self.response = response
             } else {
-                // Добавляем в self.response новые картинки, полученные с новых страниц (page)
+                // Добавляем в self.response новые картинки, полученные с новых страниц (page).
                 self.response!.results.append(contentsOf: response.results)
             }
             
