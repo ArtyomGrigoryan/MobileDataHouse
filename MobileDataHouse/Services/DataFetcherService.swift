@@ -21,9 +21,9 @@ class DataFetcherService: DataFetcherServiceProtocol {
     
     func searchPhotos(query: String, page: String, response: @escaping (ServerResponse?, Error?) -> Void) {
         let parameters = ["client_id": API.key,
-                      "query": query,
-                      "page": page,
-                      "per_page": API.perPage]
+                          "query": query,
+                          "page": page,
+                          "per_page": API.perPage]
        
         dataFetcher.fetchJSONData(params: parameters, response: response)
     }

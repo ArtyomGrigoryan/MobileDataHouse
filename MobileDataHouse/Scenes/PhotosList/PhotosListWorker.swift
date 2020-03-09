@@ -29,7 +29,6 @@ class PhotosListService {
         }
     }
     
-    
     func getNextPortion(query: String, page: String, completion: @escaping (Response<ServerResponse>) -> Void) {
         fetcherService.searchPhotos(query: query, page: page) { [weak self]  (serverResponse, error) in
             guard let self = self, let response = serverResponse else {

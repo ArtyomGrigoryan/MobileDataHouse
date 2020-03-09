@@ -12,7 +12,8 @@ extension UIToolbar {
     func toolbarPicker(mySelect: Selector) -> UIToolbar {
         let toolbar = UIToolbar()
         let doneButton = UIBarButtonItem(title: "Готово", style: .plain, target: self, action: mySelect)
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,
+                                          target: nil, action: nil)
         
         toolbar.barStyle = .default
         toolbar.tintColor = .black
