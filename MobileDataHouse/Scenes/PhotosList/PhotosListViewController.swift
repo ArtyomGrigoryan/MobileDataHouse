@@ -23,6 +23,7 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
     
     private var photosViewModel = PhotosViewModel(cells: [])
     private var footerView = FooterCollectionReusableView()
+    private var headerView = HeaderCollectionReusableView()
     private var myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -56,6 +57,9 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
         collectionView.register(FooterCollectionReusableView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: String(describing: FooterCollectionReusableView.self))
+        collectionView.register(HeaderCollectionReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: String(describing: HeaderCollectionReusableView.self))
     }
 
     // MARK: - View lifecycle
@@ -98,20 +102,30 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotosListCollectionViewCell.self),
                                                       for: indexPath) as! PhotosListCollectionViewCell
         let cellViewModel = photosViewModel.cells[indexPath.row]
-        
         cell.set(viewModel: cellViewModel)
-        
+
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
-                                                                           withReuseIdentifier: String(describing: FooterCollectionReusableView.self),
-                                                                           for: indexPath) as! FooterCollectionReusableView
-        
-        reusableView.addSubview(footerView)
-        
-        return reusableView
+        switch kind {
+        case UICollectionView.elementKindSectionFooter:
+            let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                                               withReuseIdentifier: String(describing: FooterCollectionReusableView.self),
+                                                                               for: indexPath) as! FooterCollectionReusableView
+            reusableView.addSubview(footerView)
+            
+            return reusableView
+        case UICollectionView.elementKindSectionHeader:
+            let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                               withReuseIdentifier: String(describing: HeaderCollectionReusableView.self),
+                                                                               for: indexPath) as! HeaderCollectionReusableView
+            reusableView.addSubview(headerView)
+            
+            return reusableView
+        default:
+            preconditionFailure("Неверный тип дополнительной вью")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -121,6 +135,16 @@ class PhotosListViewController: UICollectionViewController, PhotosListDisplayLog
         let width = collectionView.frame.size.width
         
         return CGSize(width: (width / numberOfColumns) - (xInsets + cellSpacing), height: (width / numberOfColumns) - (xInsets + cellSpacing))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if photosViewModel.cells.count > 0 {
+            self.collectionView.isScrollEnabled = true
+            return CGSize(width: 0, height: 0)
+        } else {
+            self.collectionView.isScrollEnabled = false
+            return CGSize(width: 1, height: self.view.frame.size.height)
+        }
     }
     
     // MARK: - @IBActions

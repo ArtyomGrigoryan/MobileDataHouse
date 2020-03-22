@@ -62,7 +62,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
     }
   
     // MARK: - View lifecycle
-  
+      
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,7 +71,7 @@ class SearchPhotosViewController: UIViewController, SearchPhotosDisplayLogic {
         photoCategoryNameTextField.delegate = self
         photoCategoryNameTextField.inputAccessoryView = toolbar
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)

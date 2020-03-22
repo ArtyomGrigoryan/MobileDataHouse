@@ -14,12 +14,12 @@ protocol PhotosListCellViewModel {
 
 class PhotosListCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var photoImageView: WebImageView!
+    @IBOutlet private weak var photoImageView: WebImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
     func set(viewModel: PhotosListCellViewModel) {
         photoImageView.set(imageURL: viewModel.small)
     }
